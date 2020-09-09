@@ -29,7 +29,6 @@ gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.5"
-gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
 # Use Redis adapter to run Action Cable in production
@@ -44,7 +43,6 @@ gem "omniauth-facebook"
 # gem "capistrano-rails", group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
