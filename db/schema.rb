@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_08_19_154904) do
     t.index ["category_id"], name: "index_dishes_on_category_id"
   end
 
+  create_table "menu_dishes", force: :cascade do |t|
+    t.integer "menu_id", null: false
+    t.integer "dish_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_menu_dishes_on_dish_id"
+    t.index ["menu_id"], name: "index_menu_dishes_on_menu_id"
+  end
+
   create_table "menus", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

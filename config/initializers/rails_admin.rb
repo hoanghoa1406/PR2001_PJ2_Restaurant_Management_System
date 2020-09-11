@@ -9,6 +9,7 @@ RailsAdmin.config do |config|
   # config.current_user_method(&:current_user)
 
   ## == CancanCan ==
+  
    config.authorize_with :cancancan
    
    config.authorize_with do
@@ -27,7 +28,10 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    # config.model 'category' do
+    #   index dish.limit(1) 
 
+    #   end
     ## With an audit adapter, you can add:
     # history_index
     # history_show
