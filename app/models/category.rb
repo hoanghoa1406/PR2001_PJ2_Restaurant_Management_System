@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Category < ApplicationRecord
-  has_many :dishes
+  has_many :dishes, dependent: :destroy
 end

@@ -9,8 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Order < ApplicationRecord
-  has_many :order_tables
-  has_many :order_details
+  has_many :order_tables, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   has_many :tables , through: :order_tables
   has_many :dishes , through: :order_details
 end

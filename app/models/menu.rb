@@ -8,6 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Menu < ApplicationRecord
-  has_many :menu_dishes
+  has_many :menu_dishes, dependent: :destroy
   has_many :dishes, through: :menu_dishes
 end
