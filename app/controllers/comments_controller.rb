@@ -1,11 +1,10 @@
 class CommentsController < ApplicationController
-  def index
+  def index; end
 
-  end
-  def create 
+  def create
     if signed_in?
       @user = current_user
-      @comment = current_user.comments.build comment_params 
+      @comment = current_user.comments.build comment_params
       @dish = Dish.find params[:comment][:dish_id]
       if @comment.save
         flash[:success] = 'Commented success!'
@@ -18,14 +17,15 @@ class CommentsController < ApplicationController
       redirect_to login_path
     end
   end
+
   def destroy
     @comment.destroy
-     flash[:success] = 'Detele comment success'
-   end
+    flash[:success] = 'Detele comment success'
+  end
 
+  private
 
-private
   def comment_params
-    params.require(:comment).permit :contents , :user_id, :dish_id 
+    params.require(:comment).permit :contents, :user_id, :dish_id
   end
 end

@@ -6,10 +6,8 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find params[:id]
-     @comments = @dish.comments
-    
-    if signed_in?
-      @comment = current_user.comments.build(dish_id: params[:id])
-    end
-  end 
+    @comments = @dish.comments
+
+    @comment = current_user.comments.build(dish_id: params[:id]) if signed_in?
+  end
 end

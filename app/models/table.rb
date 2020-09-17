@@ -10,5 +10,5 @@
 #
 class Table < ApplicationRecord
   has_many :orders, dependent: :destroy
-  enum status: [ :free, :used, :reserve ]
+  enum status: %i[free used reserve]
 end
