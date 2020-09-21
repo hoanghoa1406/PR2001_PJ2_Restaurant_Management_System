@@ -9,5 +9,6 @@
 #  updated_at :datetime         not null
 #
 class Table < ApplicationRecord
-  has_many :orders , through: :order_tables
+  has_many :orders, dependent: :destroy
+  enum status: [ :free, :used, :reserve ]
 end
