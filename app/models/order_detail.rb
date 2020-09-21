@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #
 class OrderDetail < ApplicationRecord
-  belongs_to :order, optional: true
+  belongs_to :order
   belongs_to :dish
+ 
 end

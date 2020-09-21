@@ -2,11 +2,11 @@
 
 </head>
   <div id="canvas-overlay" style=""></div>
-  <div class="boxed-page" style="background: aliceblue">
+  <div class="boxed" style="background: aliceblue">
     <nav id="navbar-header" class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
-           <!--  <%=image_tag "logo.png"%> -->
+ 
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="lnr lnr-menu"></span>
@@ -33,13 +33,19 @@
                         <a class="nav-link" href="">About</a>
                     </li>
 
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category
+                            
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              
-                               </div>
+
+                          <% @categories.each do |category| %>
+                            <h3> 
+                              <%= link_to "#{category.name}", category_dishes_path(category) %> 
+                            </h3>
+                          <% end %> 
+                                 </div>
                                 </div>
                             </li>
                         </div>
@@ -54,7 +60,7 @@
                         <a class="nav-link" href="menu.html">Menu</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="team.html">Team</a>
+                        <a class="nav-link" <%= link_to "Reviews", reviews_path %></a>
                      </li>
                         <% if user_signed_in? %>
                       <li class="nav-item dropdown">

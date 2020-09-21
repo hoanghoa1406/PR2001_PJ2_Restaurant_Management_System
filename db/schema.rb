@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_154904) do
+ActiveRecord::Schema.define(version: 2020_09_21_125700) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,14 +18,32 @@ ActiveRecord::Schema.define(version: 2020_08_19_154904) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "contents"
+    t.integer "user_id", null: false
+    t.integer "dish_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_comments_on_dish_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
+    t.string "contents"
     t.integer "money"
-    t.string "image_dish"
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_dishes_on_category_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "dish_id", null: false
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_images_on_dish_id"
   end
 
   create_table "menu_dishes", force: :cascade do |t|
@@ -46,7 +64,10 @@ ActiveRecord::Schema.define(version: 2020_08_19_154904) do
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "dish_id", null: false
+    t.integer "quantity"
+    t.integer "price"
     t.integer "cost", default: 0
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dish_id"], name: "index_order_details_on_dish_id"
@@ -63,10 +84,15 @@ ActiveRecord::Schema.define(version: 2020_08_19_154904) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.string "name"
+    t.integer "user_id", null: false
+    t.integer "table_id", null: false
+    t.integer "people"
+    t.datetime "timeorder"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total_price"
+    t.index ["table_id"], name: "index_orders_on_table_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -82,7 +108,8 @@ ActiveRecord::Schema.define(version: 2020_08_19_154904) do
 
   create_table "tables", force: :cascade do |t|
     t.string "name"
-    t.string "status", default: "0"
+    t.integer "people"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

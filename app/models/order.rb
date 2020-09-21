@@ -9,8 +9,9 @@
 #  updated_at :datetime         not null
 #
 class Order < ApplicationRecord
-  has_many :order_tables, dependent: :destroy
+  belongs_to :user
+  belongs_to :table
   has_many :order_details, dependent: :destroy
-  has_many :tables , through: :order_tables
-  has_many :dishes , through: :order_details
+  has_many :dishes, through: :order_details
+  accepts_nested_attributes_for :order_details
 end

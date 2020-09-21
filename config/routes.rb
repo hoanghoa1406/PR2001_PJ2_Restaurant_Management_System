@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'pages#home'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
    as :user do
@@ -8,22 +9,23 @@ Rails.application.routes.draw do
     post "signin" => "devise/sessions#create"
     delete "signout" => "devise/sessions#destroy"
     get '/users/sign_out' => 'devise/sessions#destroy'
-    resources :users, :only =>[:show]     
+    resources :users, :only =>[:show] do
+      resources :comments
+      resources :orders
+    end
+
   end
-  root 'pages#home'
-  get 'home', to: 'pages#home'
-  # namespace :admin do
-  #   resources :order_details
-  #   resources :order_tables
-  #   resources :orders
-  #   resources :menus
-  #   resources :categories do
-  #     resources :dishes
-  #   end
-  #   resources :reviews
-  #   resources :tables
-  #   resources :users
-  #   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # end
+  resources :categories, only: %i[show index] do
+     resources :dishes, only: %i[show index]
+  end
+
+  resources :dishes, except: :index do
+    resources :images, only: %i[show index]
+    resources :comments,only: :index
+  end
+  resources :reviews
+
+  resources :tables
+
 end
 

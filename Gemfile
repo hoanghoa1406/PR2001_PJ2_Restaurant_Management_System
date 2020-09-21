@@ -2,7 +2,6 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.3"
-
 gem "devise", "~> 4.1"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
 gem "rails", "~> 5.2.4", ">= 5.2.4.2"
@@ -30,6 +29,7 @@ gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.5"
 gem "omniauth"
+gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -58,6 +58,8 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "rails-erd"
   gem 'annotate'
+  gem 'will_paginate', '>= 3.0'
+  gem "ransack"
 end
 
 group :test do
