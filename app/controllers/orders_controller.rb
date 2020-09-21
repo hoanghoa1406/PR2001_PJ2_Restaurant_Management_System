@@ -26,7 +26,6 @@ class OrdersController < ApplicationController
     def create
       if CreateOrderAndOrderDetails.new(params).perform
         flash[:success] = "Create Order"
-        after.save
         redirect_to orders_path
         else 
           flash[:danger] = "Register failed"
