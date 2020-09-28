@@ -197,8 +197,8 @@ a:hover {
 
 .menu-img {
   overflow: hidden;
-  height: 80px;
-  width: 80px; }
+  height: 140px;
+  width: 144px; }
   .menu-img img {
     transition: all .5s ease;
     height: 100%;
@@ -501,3 +501,27 @@ a:hover {
   .img-2 {
     height: 500px; } }
 
+body{margin-top:20px;}
+
+.comment-wrapper .panel-body {
+    max-height:650px;
+    overflow:auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+}
+.img-fix{
+ width:300px;
+ height:200px;
+}
+.form{
+ width:300px
+}

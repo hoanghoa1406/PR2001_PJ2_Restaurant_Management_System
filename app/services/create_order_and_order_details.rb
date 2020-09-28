@@ -11,8 +11,8 @@ class CreateOrderAndOrderDetails
       total_price = 0
       params[:dishes].each do |dish|
         d = Dish.find dish[:dish_id]
-        total_price += price*quantity
-        order.order_details.create!(dish_id: dish.id, quantity: dish[:quantity], price: d.money, cost: price*quantity) 
+        total_price += price * quantity
+        order.order_details.create!(dish_id: dish.id, quantity: dish[:quantity], price: d.money, cost: price * quantity)
       end
       order.update total_price: total_price
     end

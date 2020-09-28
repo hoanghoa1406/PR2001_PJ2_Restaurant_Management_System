@@ -18,8 +18,7 @@
 #  updated_at             :datetime         not null
 #
 class User < ApplicationRecord
-  has_many :reviews
-  has_many :orders
+  has_many :comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
