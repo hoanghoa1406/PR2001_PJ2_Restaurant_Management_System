@@ -1,10 +1,7 @@
 class OrdersController < ApplicationController
-  before_action :set_menu, except: %i[index new create]
-  before_action :set_user, except: [:show]
 
-  def index
-    @orders = Order.paginate(page: params[:page], per_page: 10)
-  end
+  before_action :set_order, only: [ :show ]
+  before_action :set_user
 
   def show; end
 
@@ -22,45 +19,42 @@ class OrdersController < ApplicationController
   #   ]
   # }
 
-  def create
-    if CreateOrderAndOrderDetails.new(params).perform
-      flash[:success] = 'Create Order'
-      redirect_to orders_path
-    else
-      flash[:danger] = 'Register failed'
-      render 'new'
+    def create
+      if CreateOrderAndOrderDetails.new(params).perform
+        flash[:success] = "Create Order"
+        redirect_to orders_path
+      else 
+        flash[:danger] = "Register failed"
+        render 'new'
+      end
     end
   end
 
   def edit; end
 
-  def update
-    if @order.update(order_params)
-      flash[:success] = 'Order was successfully updated.'
-      redirect_to orders_url
-    else
-      flash[:danger] = 'Order was not successfully updated.'
-      render 'edit'
+
+    def update
+      if @order.update(order_params)
+        flash[:success] = "Order was successfully updated."
+        redirect_to orders_url
+      else
+        flash[:danger] = "Order was not successfully updated."
+        render 'edit'
+      end
+
     end
   end
 
-  def destroy
-    @order.destroy
-    flash[:success] = 'Menu was successfully destroyed.'
-    redirect_to orders_url
-  end
-
-  private
-
-  def set_order
-    @order = Order.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def order_params
-    params.require(:order).permit :name
+    def destroy
+      @order.destroy
+      flash[:success] = "Menu was successfully destroyed."
+      redirect_to orders_url
+    end
+    private
+    def set_order
+        @order = Order.find(params[:id])
+    end
+    def set_user
+      @user = current_user
   end
 end
