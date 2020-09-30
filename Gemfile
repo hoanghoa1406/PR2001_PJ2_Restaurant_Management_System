@@ -67,7 +67,7 @@ group :development do
   gem "redis", '>= 4.2.0'
   gem 'whenever', :require => false
   gem 'gmaps4rails'
-
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :test do
