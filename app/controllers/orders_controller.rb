@@ -1,15 +1,16 @@
 class OrdersController < ApplicationController
 
   before_action :set_order, only: [ :show ]
-  before_action :set_user
 
   def show
     @user = current_user
   end
 
-  def new
+  def new 
     @user = current_user
     @order = Order.new
+    @tables = Table.all
+    @dishes = Dish.all
   end
 
   # input:
@@ -22,14 +23,23 @@ class OrdersController < ApplicationController
   #   ]
   # }
 
+def validate_step
+  oder = Order.new oder_params
+  oder.valid?
+
+  error_messages = error_attrs.map do |attr|
+    Order.human_attribute_name(attr) + " " + oder.errors[attr].first
+  end
+end
+
     def create
-      @user = current_user
-      if CreateOrderAndOrderDetails.new(params).perform
+      @user = current_user 
+      if CreateOrderAndOrderDetails.new(params,current_user).perform
         flash[:success] = "Create Order"
-        redirect_to orders_path
+        redirect_to root_path
       else 
         flash[:danger] = "Register failed"
-        render 'new'
+        redirect_to root_path
       end
     end
   end

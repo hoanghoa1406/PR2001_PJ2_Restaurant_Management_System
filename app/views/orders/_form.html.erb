@@ -1,0 +1,10 @@
+<%= form_for :order,method: :post, html: { class: "form-horizontal" } , url: orders_path  do |form| %>
+  
+  <div class="js-form-step">
+    <%= render "orders/form_steps/receiver_step", form: form, order: order %>
+  </div>
+
+  <div class="js-form-step" style="display: none">
+    <%= render "orders/form_steps/table_step", form: form, order: order %>
+  </div>
+<% end %>

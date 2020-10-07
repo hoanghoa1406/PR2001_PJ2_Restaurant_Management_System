@@ -1,0 +1,27 @@
+
+[1mFrom:[0m /home/h2n/PR2001_PJ2_Restaurant_Management_System/app/services/create_order_and_order_details.rb:11 CreateOrderAndOrderDetails#perform:
+
+     [1;34m9[0m: [32mdef[0m [1;34mperform[0m
+    [1;34m10[0m:   [1;34;4mActiveRecord[0m::[1;34;4mBase[0m.transaction [32mdo[0m 
+ => [1;34m11[0m:     binding.pry
+    [1;34m12[0m:     order = [1;34;4mOrder[0m.create!([35mname[0m: params[[33m:order[0m][[33m:name[0m], [35mtable_id[0m: params[[33m:table_id[0m], [35muser[0m: user)
+    [1;34m13[0m:     
+    [1;34m14[0m:     total_price = [1;34m0[0m
+    [1;34m15[0m:     
+    [1;34m16[0m:     params[[33m:dishes[0m].values.each [32mdo[0m |dish|
+    [1;34m17[0m:       d = [1;34;4mDish[0m.find_by([35mid[0m: dish[[33m:dish_id[0m])
+    [1;34m18[0m:       [32mnext[0m [32munless[0m d 
+    [1;34m19[0m:       quantity = dish[[33m:quantity[0m].to_i
+    [1;34m20[0m:       [32mnext[0m [32mif[0m quantity == [1;34m0[0m
+    [1;34m21[0m:       price =  d.money
+    [1;34m22[0m:       total_price += price * quantity
+    [1;34m23[0m:       order.order_details.create!([35mdish_id[0m: d.id, [35mquantity[0m: quantity, [35mprice[0m: d.money, [35mcost[0m: price * quantity)
+    [1;34m24[0m:     [32mend[0m
+    [1;34m25[0m:     order.update! [35mtotal_price[0m: total_price
+    [1;34m26[0m:   [32mend[0m
+    [1;34m27[0m:   [1;36mtrue[0m
+    [1;34m28[0m: [32mrescue[0m [1;34;4mStandardError[0m => e 
+    [1;34m29[0m:   [1;34;4mRails[0m.logger.error e.message
+    [1;34m30[0m:   [1;36mfalse[0m
+    [1;34m31[0m: [32mend[0m
+

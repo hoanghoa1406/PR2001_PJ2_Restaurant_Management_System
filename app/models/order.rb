@@ -10,7 +10,7 @@
 #
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :table
+  has_one :table
   has_many :order_details, dependent: :destroy
   has_many :dishes, through: :order_details
   accepts_nested_attributes_for :order_details

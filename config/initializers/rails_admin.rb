@@ -9,9 +9,9 @@ RailsAdmin.config do |config|
 
   # Hide model
   config.excluded_models = [MenuDish, Image]
-
-  # == CancanCan ==
-  config.authorize_with :cancancan
+autho
+  # == CanncCaan ==
+  config.rize_with :cancancan
   config.authorize_with do
     unless current_user.try(:admin?)
       flash[:error] = 'You are not authorize to access this page!'
@@ -20,7 +20,7 @@ RailsAdmin.config do |config|
   end
   # config action
   config.actions do
-    dashboard # mandatory
+    dashboard # mandatory 
     index # mandatory
     new do
       except %w[Review User Comment] # admin không được tạo mới review và order
@@ -55,10 +55,11 @@ RailsAdmin.config do |config|
         field :image_dish
       end
 
-      field :name
-      field :money
-      field :category
-      field :image_dish
+        field :name
+        field :money
+        field :category
+        field :image_dish
+      
     end
 
     config.model 'Order' do
@@ -69,8 +70,7 @@ RailsAdmin.config do |config|
         hide
       end
 
-      config.model 'Category' do
-      end
     end
   end
 end
+
