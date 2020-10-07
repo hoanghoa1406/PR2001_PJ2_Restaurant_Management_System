@@ -11,7 +11,6 @@ gem 'carrierwave'
 gem 'chosen-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rails_admin'
-gem 'will_paginate', '~> 3.0.4'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -33,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'jquery-rails'
+gem 'rails-i18n'
+gem 'pry'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 # Use ActiveModel has_secure_password
