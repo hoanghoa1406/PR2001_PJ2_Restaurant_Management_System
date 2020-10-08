@@ -11,6 +11,8 @@ gem 'carrierwave'
 gem 'chosen-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rails_admin'
+gem 'kaminari'
+gem 'ransack'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -59,17 +61,18 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'annotate'
-
-  gem 'rails-erd'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  
   gem "ransack"
   gem 'sidekiq'
   gem "redis", '>= 4.2.0'
   gem 'whenever', :require => false
   gem 'gmaps4rails'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem 'rails-erd'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+ 
 end
 
 group :test do

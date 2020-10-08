@@ -9,9 +9,9 @@ RailsAdmin.config do |config|
 
   # Hide model
   config.excluded_models = [MenuDish, Image]
-autho
-  # == CanncCaan ==
-  config.rize_with :cancancan
+
+  # == CancanCan ==
+  config.authorize_with :cancancan
   config.authorize_with do
     unless current_user.try(:admin?)
       flash[:error] = 'You are not authorize to access this page!'
@@ -20,7 +20,7 @@ autho
   end
   # config action
   config.actions do
-    dashboard # mandatory 
+    dashboard # mandatory
     index # mandatory
     new do
       except %w[Review User Comment] # admin không được tạo mới review và order
@@ -73,4 +73,3 @@ autho
     end
   end
 end
-

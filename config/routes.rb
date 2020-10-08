@@ -25,6 +25,6 @@ Rails.application.routes.draw do
     resources :comments, only: :index
   end
   resources :reviews
-
+  resources :menus
   resources :tables
 end
