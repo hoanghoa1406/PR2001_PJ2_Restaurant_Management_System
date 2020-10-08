@@ -63,8 +63,10 @@ group :development do
   gem 'annotate'
   gem 'spring'
 
+
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'kaminari'  
+
 
   gem "ransack"
   gem 'bootstrap-kaminari-views'
