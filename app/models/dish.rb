@@ -20,4 +20,5 @@ class Dish < ApplicationRecord
   has_many :menus, through: :menu_dishes
   has_many :orders, through: :order_details
   has_many :comments, dependent: :destroy
+ 
 end

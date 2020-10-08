@@ -13,21 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
 @import "~bootstrap/scss/bootstrap";
 @import "./scaffolds.scss";
 	
-.aaaa {
-  position: fixed;
-  z-index: 1000000;
-  width: 100%;
-  margin: 0;
-}
 
-.navbar--header {
-  margin-right: unset !important;
-  height: unset !important;
-}
-
-.navbar-brand-center img {
-  height: 35px !important;
-}

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :category
 
+  skip_before_action :verify_authenticity_token
+
   protected
 
   def configure_permitted_parameters
@@ -20,4 +22,12 @@ class ApplicationController < ActionController::Base
     @category = Category.find_by params[:category_id]
     @dishes = Dish.all
   end
+
+  def order
+    @user = User.find params [:user_id]
+    @order = Order.find params [:order_id]
+  end
+   
+
+
 end
