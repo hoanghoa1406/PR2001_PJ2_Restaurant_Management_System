@@ -1,5 +1,9 @@
 {
   "name": "PR2001_PJ2_Restaurant_Management_System",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "expose-loader": "^1.0.0",
+    "js": "^0.1.0",
+    "rails-ujs": "^5.2.4-4"
+  }
 }

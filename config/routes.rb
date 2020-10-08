@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     resources :dishes, only: %i[show index]
   end
 
-  resources :orders
+  resources :orders do
+    collection do
+      post :validate_step
+    end
+  end
 
   resources :dishes, except: :index do
     resources :images, only: %i[show index]

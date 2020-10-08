@@ -12,6 +12,7 @@ gem 'chosen-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rails_admin'
 gem 'kaminari'
+gem "wicked"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

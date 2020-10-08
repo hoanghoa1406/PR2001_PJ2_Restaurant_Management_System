@@ -16,5 +16,6 @@
 
 @import "~bootstrap/scss/bootstrap";
 @import "./scaffolds.scss";
-	
+@import "bootstrap-sprockets";
+@import "bootstrap";
 

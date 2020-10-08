@@ -23,6 +23,10 @@ class CreateOrderAndOrderDetails
         order.order_details.create!(dish_id: d.id, quantity: quantity, price: d.money, cost: price * quantity)
       end
       order.update! total_price: total_price
+      if(timeorder <= Time.now - 2.hour)
+        @table = Table.find(table_id)
+        @table.update! status: 2
+      end
     end
     true
   rescue StandardError => e 
