@@ -4,14 +4,22 @@ class OrdersController < ApplicationController
 
   def show
     @user = current_user
+    @order_details = @order.order_details
+    a = Array.new
+    @order_details.each do |od|
+      a.push(od.dish_id)
+    end
+    @dishes = Dish.find(a)
   end
 
   def new 
     @user = current_user
     @order = Order.new
     @tables = Table.all
-    @dishes = Dish.all
+    @q = Dish.ransack(params[:q])
+    @dishes = @q.result.page(params[:page])
   end
+
 
   # input:
   # params = {

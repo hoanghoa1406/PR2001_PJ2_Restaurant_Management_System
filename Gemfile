@@ -63,8 +63,9 @@ group :development do
   gem 'rails-erd'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  
+  gem 'kaminari'  
   gem "ransack"
+  gem 'bootstrap-kaminari-views'
   gem 'sidekiq'
   gem "redis", '>= 4.2.0'
   gem 'whenever', :require => false

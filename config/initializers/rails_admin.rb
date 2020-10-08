@@ -9,9 +9,8 @@ RailsAdmin.config do |config|
 
   # Hide model
   config.excluded_models = [MenuDish, Image]
-autho
   # == CanncCaan ==
-  config.rize_with :cancancan
+  config.authorize_with :cancancan
   config.authorize_with do
     unless current_user.try(:admin?)
       flash[:error] = 'You are not authorize to access this page!'
