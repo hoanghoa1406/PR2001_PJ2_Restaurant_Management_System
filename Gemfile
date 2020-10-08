@@ -12,7 +12,6 @@ gem 'chosen-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'rails_admin'
 gem 'kaminari'
-gem 'ransack'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -64,7 +63,6 @@ group :development do
   gem 'spring'
 
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'kaminari'  
 
   gem "ransack"
   gem 'bootstrap-kaminari-views'
@@ -74,8 +72,7 @@ group :development do
   gem 'gmaps4rails'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'rails-erd'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+
 
  
 end
