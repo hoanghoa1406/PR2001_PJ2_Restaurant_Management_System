@@ -6,8 +6,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find params[:id]
-    @comments = @dish.comments
-
+    @comments = @dish.comments.page(params[:page]).per(5) 
     @comment = current_user.comments.build(dish_id: params[:id]) if signed_in?
   end
 end

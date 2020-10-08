@@ -9,6 +9,6 @@
 #
 class Category < ApplicationRecord
   has_many :dishes, dependent: :destroy
-  mount_uploader :image_dish, ImageUploader
   has_many :images, dependent: :destroy
+
 end

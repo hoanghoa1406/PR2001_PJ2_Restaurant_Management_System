@@ -1,9 +1,0 @@
-<div class="form" >
-	<%= form_for [current_user, @comment] do |f| %>
-	  <%= f.hidden_field :user_id, value: current_user.id %> 
-	  <%= f.hidden_field :dish_id, value: @dish.id %>
-	  <h1><label for="exampleFormControlTextarea1">Comment</label></h1>
-	  <%= f.text_area :contents, class:"form-control"%>
-	  <%= f.submit "Submit" , class:" btn btn-primary"%>
-	<% end %>
-</div>
