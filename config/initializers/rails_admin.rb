@@ -9,6 +9,7 @@ RailsAdmin.config do |config|
 
   # Hide model
   config.excluded_models = [MenuDish, Image]
+
   config.authorize_with :cancancan
   config.authorize_with do
     unless current_user.try(:admin?)

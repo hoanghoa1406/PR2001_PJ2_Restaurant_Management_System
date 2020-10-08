@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
       a.push(od.dish_id)
     end
     @dishes = Dish.find(a)
-  end
+
 
   def new 
     @user = current_user
